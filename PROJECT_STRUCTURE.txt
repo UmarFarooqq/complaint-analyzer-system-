@@ -1,0 +1,62 @@
+Complaint Analyzer System
+|
+|-- backend/                         Node.js and Express application
+|   |-- ai/
+|   |   |-- advancedAnalyzer.js     Detailed local complaint analysis
+|   |   |-- chatAssistant.js        Context-aware student assistant
+|   |   |-- localAnalyzer.js        Local category, sentiment, and priority analysis
+|   |   `-- openaiAnalyzer.js       Optional OpenAI analysis with local fallback
+|   |-- config/
+|   |   `-- db.js                   MariaDB/MySQL connection pool
+|   |-- controllers/                HTTP request and response logic
+|   |-- middleware/
+|   |   |-- authMiddleware.js       JWT and role authorization
+|   |   |-- roleMiddleware.js       Department and super-admin permissions
+|   |   `-- uploadMiddleware.js     Evidence type and size validation
+|   |-- models/                     Parameterized database operations
+|   |-- routes/                     Public, auth, complaint, admin, role, and chatbot APIs
+|   |-- uploads/                    Runtime evidence storage; ignored by Git
+|   |-- utils/                      Email, tokens, access checks, metadata, and admin seed
+|   `-- server.js                   Application entry point and static frontend server
+|
+|-- database/
+|   |-- schema.sql                  Destructive base schema for clean installations only
+|   |-- seed.sql                    Complaint category seed data
+|   |-- advanced_seed.sql           Department and university seed data
+|   |-- advanced_features_migration.sql
+|   |-- final_advanced_fix_migration.sql
+|   |-- separate_role_dashboards_migration.sql
+|   |-- email_verification_migration.sql
+|   |-- normalize_registration_numbers.sql
+|   `-- complaint_accountability_migration.sql
+|
+|-- frontend/                        Static HTML, CSS, and browser JavaScript
+|   |-- admin/                       Admin login, dashboards, complaints, roles, reports
+|   |-- department/                  Department Admin dashboard
+|   |-- faculty/                     Faculty Staff dashboard
+|   |-- reviewer/                    Reviewer dashboard
+|   |-- user/                        Student auth, complaints, history, status, chat, notices
+|   |-- assets/
+|   |   |-- css/                     Shared responsive styles
+|   |   `-- js/                      API integration, sessions, dashboards, and UI behavior
+|   |-- index.html                   Public landing page
+|   `-- welcome.html                 First-visit introduction
+|
+|-- docs/
+|   |-- README.md                    Documentation index
+|   |-- SYSTEM_OVERVIEW.md           Roles, architecture, and workflows
+|   |-- API_DOCUMENTATION.md         Current API reference
+|   |-- DATABASE_STRUCTURE.md        Tables and migration guidance
+|   |-- SECURITY_AND_PRIVACY.md      Security controls and privacy limitations
+|   `-- PRODUCTION_DEPLOYMENT_GUIDE.md
+|
+|-- .env.example                    Safe configuration template
+|-- .gitignore                      Git exclusions for secrets and generated data
+|-- .dockerignore                   Docker build-context exclusions
+|-- docker-compose.yml              Local app and MariaDB services
+|-- Dockerfile                      Production Node.js container image
+|-- package.json                    npm metadata, dependencies, and scripts
+|-- package-lock.json               Reproducible dependency lock
+|-- Procfile                        Process command for compatible hosts
+|-- render.yaml                     Render web-service blueprint
+`-- README.md                       Main setup and usage guide

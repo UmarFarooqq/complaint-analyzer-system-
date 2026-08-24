@@ -1,0 +1,69 @@
+name: complaint-analyzer-system
+
+services:
+  database:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${DB_NAME:-complaint_analyzer_system}
+      MARIADB_USER: ${DOCKER_DB_USER:-complaint_app}
+      MARIADB_PASSWORD: ${DOCKER_DB_PASSWORD:?Set DOCKER_DB_PASSWORD in .env}
+      MARIADB_ROOT_PASSWORD: ${DOCKER_DB_ROOT_PASSWORD:?Set DOCKER_DB_ROOT_PASSWORD in .env}
+    ports:
+      - "${DOCKER_DB_PORT:-3307}:3306"
+    volumes:
+      - database_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - ./database/advanced_features_migration.sql:/docker-entrypoint-initdb.d/03-advanced-features.sql:ro
+      - ./database/advanced_seed.sql:/docker-entrypoint-initdb.d/04-advanced-seed.sql:ro
+      - ./database/final_advanced_fix_migration.sql:/docker-entrypoint-initdb.d/05-final-advanced.sql:ro
+      - ./database/separate_role_dashboards_migration.sql:/docker-entrypoint-initdb.d/06-role-dashboards.sql:ro
+      - ./database/email_verification_migration.sql:/docker-entrypoint-initdb.d/07-email-verification.sql:ro
+      - ./database/normalize_registration_numbers.sql:/docker-entrypoint-initdb.d/08-normalize-registration.sql:ro
+      - ./database/complaint_accountability_migration.sql:/docker-entrypoint-initdb.d/09-complaint-accountability.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    init: true
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    ports:
+      - "${APP_PORT:-5000}:5000"
+    environment:
+      PORT: "5000"
+      NODE_ENV: production
+      APP_BASE_URL: ${APP_BASE_URL:-http://localhost:5000}
+      DB_HOST: database
+      DB_USER: ${DOCKER_DB_USER:-complaint_app}
+      DB_PASSWORD: ${DOCKER_DB_PASSWORD:?Set DOCKER_DB_PASSWORD in .env}
+      DB_NAME: ${DB_NAME:-complaint_analyzer_system}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in .env}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-1d}
+      EMAIL_HOST: ${EMAIL_HOST:-}
+      EMAIL_PORT: ${EMAIL_PORT:-587}
+      EMAIL_SECURE: ${EMAIL_SECURE:-false}
+      EMAIL_USER: ${EMAIL_USER:-}
+      EMAIL_PASS: ${EMAIL_PASS:-}
+      EMAIL_FROM: ${EMAIL_FROM:-}
+      REQUIRE_EMAIL_VERIFICATION: ${REQUIRE_EMAIL_VERIFICATION:-false}
+      USE_OPENAI_AI: ${USE_OPENAI_AI:-false}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+    volumes:
+      - uploaded_evidence:/app/backend/uploads
+
+volumes:
+  database_data:
+  uploaded_evidence:
