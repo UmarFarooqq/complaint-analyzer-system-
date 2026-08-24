@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Analyzer System</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="landing-hero">
+    <div>
+      <span class="auth-badge">University Complaint Platform</span>
+      <h1>Smart complaint management for modern universities.</h1>
+      <p>Submit complaints with evidence, track their progress, and receive updates from the responsible department.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="user/login.html">Student Portal</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="panel-header"><h3>Complaint Overview</h3></div>
+      <div class="live-card-grid">
+        <div class="live-mini-card"><span>Total Complaints</span><strong id="publicTotalComplaints">0</strong></div>
+        <div class="live-mini-card"><span>High Priority</span><strong id="publicHighPriority">0</strong></div>
+        <div class="live-mini-card"><span>Resolved</span><strong id="publicResolved">0</strong></div>
+        <div class="live-mini-card"><span>Today</span><strong id="publicToday">0</strong></div>
+      </div>
+      <br>
+      <div id="publicRecentComplaints"><div class="preview-row"><div><b>Recent complaints will appear here</b><small>Submit a complaint to get started</small></div><span class="badge badge-medium">Ready</span></div></div>
+    </div>
+  </header>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Activity - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    <aside class="sidebar">
+      <div class="brand"><span>CAS</span><b>Main Admin</b></div>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="complaints.html">📂 Complaint Management</a>
+      <a href="analytics.html">📈 Reports & Analytics</a>
+      <a href="roles.html">👥 Roles Management</a>
+      <a class="active" href="member-activity.html">🧾 Member Activity</a>
+      <a href="#" onclick="logout()">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <section class="page-header">
+        <div>
+          <h1>Member Activity & Work History</h1>
+          <p>Main Admin can see every member's work, status updates, notes, and activity history.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header"><h3>Member Performance</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Role</th><th>Total Actions</th><th>Status Updates</th><th>Notes</th><th>Last Activity</th></tr>
+            </thead>
+            <tbody id="memberPerformanceBody"><tr><td colspan="7">Loading performance...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header"><h3>Complete Activity History</h3></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Member</th><th>Role</th><th>Action</th><th>Complaint</th><th>Description</th><th>Time</th></tr>
+            </thead>
+            <tbody id="memberActivityBody"><tr><td colspan="6">Loading activity...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

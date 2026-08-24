@@ -1,0 +1,138 @@
+/* Admin extra responsive and sidebar drawer styles */
+:root { --dash-sidebar: 250px; }
+
+/* Use a grid layout for layouts that have a sidebar on wider screens.
+   Keep the mobile drawer behavior for small screens (<=900px). */
+/* Default: keep main-wrapper margin reset so grid and flex modes don't collide */
+.main-wrapper { margin-left: 0; }
+
+@media (min-width: 781px) {
+  .app-layout.has-sidebar {
+    display: grid !important;
+    grid-template-columns: var(--dash-sidebar) 1fr !important;
+  }
+
+  /* In grid mode, sidebar participates in layout (not fixed) */
+  .app-layout.has-sidebar .sidebar {
+    position: static !important;
+    width: var(--dash-sidebar) !important;
+    inset: auto !important;
+  }
+}
+
+/* Small animation for sidebar drawer and button */
+.nav-menu-button { display: none; align-items: center; justify-content: center; gap: 7px; height: 42px; min-width: 88px; border-radius: 13px; cursor: pointer; transition: transform .15s ease, opacity .15s ease; }
+.nav-menu-button:active { transform: scale(.98); }
+
+/* Overlay shown when sidebar drawer is open */
+.sidebar-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.52); z-index: 1100; opacity: 0; visibility: hidden; transition: opacity .22s ease, visibility .22s; }
+body.sidebar-open .sidebar-overlay { opacity: 1; visibility: visible; }
+
+/* Drawer behavior on mobile */
+/* Mobile: <=780px uses off-canvas drawer. Tablet and up show inline sidebar. */
+@media (max-width: 780px) {
+  .has-sidebar .nav-menu-button { display: inline-flex !important; position: fixed !important; top: 12px; left: 12px; z-index: 1400 !important; }
+  /* Ensure off-canvas drawer overrides base stylesheet which makes sidebar static on mobile */
+  .app-layout.has-sidebar .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: -280px !important;
+    width: 280px !important;
+    height: 100vh !important;
+    transition: left .22s ease !important;
+    z-index: 1300 !important;
+  }
+  body.sidebar-open .sidebar { left: 0 !important; }
+  .main-content { padding-top: 72px !important; }
+}
+
+/* Slightly smaller sidebar for medium screens */
+@media (max-width: 1400px) and (min-width: 781px) {
+  :root { --dash-sidebar: 240px; }
+}
+
+/* slide-in micro animation */
+@keyframes adminSlideIn { from { transform: translateX(-8px); opacity: 0.98 } to { transform: translateX(0); opacity: 1 } }
+body.sidebar-open .sidebar { animation: adminSlideIn .22s ease both; }
+
+/* Role pages (faculty/reviewer) - center content and make responsive */
+.role-simple-page, .role-main-content, .role-main-content.role-simple-page, .role-main-content.reviewer-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.role-simple-page .page-header h1,
+.role-main-content .role-hero h1 {
+  font-size: clamp(22px, 4vw, 32px);
+  margin: 0 0 6px;
+}
+
+.role-hero { padding: 18px 0; }
+.role-badge { display: inline-block; background: var(--blue-soft); color: var(--blue); padding: 8px 12px; border-radius: 999px; font-weight: 800; margin-bottom: 10px; }
+
+.role-topbar { padding: 12px 0; }
+
+.role-main-content .panel { margin-top: 18px; }
+
+/* Tables: ensure horizontal scroll on narrow screens */
+.role-main-content .table-wrap { overflow-x: auto; }
+.role-main-content table { min-width: 680px; }
+
+@media (max-width: 780px) {
+  .role-simple-page, .role-main-content {
+    padding: 14px 12px;
+  }
+  .role-main-content table { min-width: 100%; }
+  .role-badge { font-size: 13px; padding: 6px 10px; }
+}
+
+/* Normalize header / menu alignment across pages */
+.top-navbar, .role-topbar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  background: rgba(255,255,255,0.92);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.top-navbar .page-title, .role-topbar .page-title {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure actions align to the right consistently */
+.top-navbar .nav-actions, .role-topbar .nav-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* If a page doesn't include a sidebar, keep main spacing consistent */
+.app-layout:not(.has-sidebar) .main-wrapper, .main-content.role-simple-page, .role-main-content {
+  margin-left: 0 !important;
+  padding-top: 12px;
+}
+
+/* Small tweak for sidebar nav links for visual balance */
+.sidebar .nav-menu { padding-top: 8px; padding-bottom: 18px; }
+.sidebar .nav-link { padding: 12px 16px; }
+
+/* Chatbot / Chat UI responsive tweaks */
+.chat-page { max-width: 900px; margin: 0 auto; padding: 22px 20px; }
+.chat-page .panel { padding: 18px; }
+.chat-page .ai-result-grid { max-height: 420px; overflow: auto; border-radius: 12px; }
+.chat-page .chat-input { width: 100%; box-sizing: border-box; }
+.chat-page form .btn { margin-top: 10px; }
+
+@media (max-width: 780px) {
+  .chat-page { padding: 12px 12px; }
+  .chat-page .ai-result-grid { max-height: 300px; }
+  .chat-page form .btn { width: 100%; display: block; }
+}

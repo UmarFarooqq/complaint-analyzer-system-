@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Management - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    <aside class="sidebar">
+      <a class="brand" href="../index.html">
+        <div class="brand-logo">CAS</div>
+        <div class="brand-text">
+          <strong>Complaint Analyzer</strong>
+          <span>Admin Panel</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a class="nav-link" href="dashboard.html">📊 Dashboard</a>
+        <a class="nav-link active" href="complaints.html">🗂 Complaint Management</a>
+        <a class="nav-link" href="analytics.html">📈 Reports & Analytics</a>
+        <a data-super-admin-only="true" href="roles.html">👥 Roles Management</a>
+        <a data-super-admin-only="true" href="member-activity.html">🧾 Member Activity</a>
+        <a href="../department/dashboard.html">🏢 Department Portal</a>
+        <a href="../faculty/dashboard.html">👨‍🏫 Faculty Portal</a>
+        <a href="../reviewer/dashboard.html">🛡 Reviewer Portal</a>
+        <a href="predictions.html">🧠 AI Prediction</a>
+        <a href="notifications.html">🔔 Notifications</a>
+        <a href="advanced-analytics.html">📈 Advanced Analytics</a>
+        <a class="nav-link" href="#" onclick="logout()">🚪 Logout</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>Admin Control</strong><br>
+        Review complaints, filter records, update status and monitor AI-based analytics.
+      </div>
+    </aside>
+
+    <div class="main-wrapper">
+      <nav class="top-navbar">
+        <div class="page-title">
+          <h1>Complaint Management</h1>
+          <p>Search, filter, review and update complaint records</p>
+        </div>
+
+        <div class="nav-actions">
+          <button class="icon-button">🔔</button>
+          <div class="profile-chip">
+            <div class="avatar">A</div>
+            <span>Admin</span>
+          </div>
+        </div>
+      </nav>
+
+      <main class="main-content">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>All Complaints</h3>
+              <p id="adminComplaintCount">Loading complaints...</p>
+            </div>
+            <button class="btn btn-light" onclick="loadAdminComplaints()">Refresh</button>
+          </div>
+
+          <div id="adminComplaintError" class="validation-message"></div>
+
+          <div class="filters">
+            <input id="adminSearchInput" placeholder="Search by R-number, complaint, category, priority, status">
+            <select id="adminCategoryFilter">
+              <option>All Categories</option>
+              <option>Fee Issue</option>
+              <option>Academic Issue</option>
+              <option>Administration Issue</option>
+              <option>Other</option>
+            </select>
+            <select id="adminPriorityFilter">
+              <option>All Priorities</option>
+              <option>High</option>
+              <option>Medium</option>
+              <option>Low</option>
+            </select>
+            <select id="adminStatusFilter">
+              <option>All Status</option>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table id="adminComplaintsTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>R-Number</th>
+                  <th>Complaint</th>
+                  <th>Category</th>
+                  <th>Sentiment</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Update</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminComplaintsBody">
+                <tr><td colspan="9">Loading complaints...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js?v=complaint-accountability-6"></script>
+</body>
+</html>

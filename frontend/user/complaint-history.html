@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Complaints - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <div class="brand-logo">CAS</div>
+    <div class="brand-text">
+      <strong>Complaint Analyzer</strong>
+      <span>Student Portal</span>
+    </div>
+  </a>
+
+  <nav class="nav-menu">
+    <a class="nav-link " href="dashboard.html">📊 Dashboard</a>
+    <a class="nav-link " href="submit-complaint.html">📝 Submit Complaint</a>
+    <a class="nav-link active" href="complaint-history.html">📁 All Complaints</a>
+    <a class="nav-link " href="status.html">🔎 View Status</a>
+    <a class="nav-link" href="#" onclick="logout()">🚪 Logout</a>
+  </nav>
+
+  <div class="sidebar-note">
+    <strong>Complaint Analysis</strong><br>
+    Sentiment, category and priority are automatically detected after complaint submission.
+  </div>
+</aside>
+
+    <div class="main-wrapper">
+      
+<nav class="top-navbar">
+  <div class="page-title">
+    <h1>All Complaints</h1>
+    <p>View all submitted complaints with AI results</p>
+  </div>
+
+  <div class="nav-actions">
+    <button class="icon-button">🔔</button>
+    <div class="profile-chip">
+      <div class="avatar">S</div>
+      <span>Student</span>
+    </div>
+  </div>
+</nav>
+
+      <main class="main-content">
+        <section class="panel">
+          <div class="panel-header"><h3>All Complaints</h3><a class="btn btn-primary" href="submit-complaint.html">New Complaint</a></div>
+          <div class="filters">
+            <input id="searchInput" onkeyup="filterTable()" placeholder="Search complaint, category or status">
+            <select id="historyCategoryFilter"><option>All Categories</option><option>Fee Issue</option><option>Academic Issue</option><option>Administration Issue</option><option>Other</option></select>
+            <select id="historyPriorityFilter"><option>All Priorities</option><option>High</option><option>Medium</option><option>Low</option></select>
+            <select id="historyStatusFilter"><option>All Status</option><option>Pending</option><option>In Progress</option><option>Resolved</option></select>
+          </div>
+          <div class="table-wrap">
+            <table id="historyTable">
+              <thead><tr><th>ID</th><th>Complaint Title</th><th>Category</th><th>Sentiment</th><th>Priority</th><th>Status</th><th>Date & Time</th></tr></thead>
+              <tbody>
+                <tr><td colspan="7">Loading complaints...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js?v=live-student-complaints-1"></script>
+</body>
+</html>

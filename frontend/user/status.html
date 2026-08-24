@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Status - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <div class="brand-logo">CAS</div>
+    <div class="brand-text">
+      <strong>Complaint Analyzer</strong>
+      <span>Student Portal</span>
+    </div>
+  </a>
+
+  <nav class="nav-menu">
+    <a class="nav-link " href="dashboard.html">📊 Dashboard</a>
+    <a class="nav-link " href="submit-complaint.html">📝 Submit Complaint</a>
+    <a class="nav-link " href="complaint-history.html">📁 All Complaints</a>
+    <a class="nav-link active" href="status.html">🔎 View Status</a>
+    <a class="nav-link" href="#" onclick="logout()">🚪 Logout</a>
+  </nav>
+
+  <div class="sidebar-note">
+    <strong>Complaint Analysis</strong><br>
+    Sentiment, category and priority are automatically detected after complaint submission.
+  </div>
+
+        <a href="chatbot.html">🤖 AI Assistant</a>
+        <a href="notifications.html">🔔 Notifications</a>
+
+</aside>
+
+    <div class="main-wrapper">
+      
+<nav class="top-navbar">
+  <div class="page-title">
+    <h1>View Status</h1>
+    <p>Track the current progress of your complaint</p>
+  </div>
+
+  <div class="nav-actions">
+    <button class="icon-button">🔔</button>
+    <div class="profile-chip">
+      <div class="avatar">S</div>
+      <span>Student</span>
+    </div>
+  </div>
+</nav>
+
+      <main class="main-content">
+        <section class="content-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Complaint Status</h3></div>
+            <div class="status-timeline">
+              <div class="status-step"><div class="status-dot"></div><div><h4>Pending</h4><p>Your complaint has been submitted and stored in the system.</p></div></div>
+              <div class="status-step"><div class="status-dot"></div><div><h4>In Progress</h4><p>Admin is reviewing your complaint based on AI priority and category.</p></div></div>
+              <div class="status-step"><div class="status-dot"></div><div><h4>Resolved</h4><p>The complaint will be marked resolved after admin action.</p></div></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Selected Complaint</h3></div>
+            <div class="ai-result-grid">
+              <div class="ai-result-item"><span>Complaint ID</span><strong id="statusComplaintId">Latest</strong></div>
+              <div class="ai-result-item"><span>Category</span><strong id="statusCategory">Loading...</strong></div>
+              <div class="ai-result-item"><span>Priority</span><strong id="statusPriority">Loading...</strong></div>
+              <div class="ai-result-item"><span>Current Status</span><strong id="statusCurrent">Loading...</strong></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

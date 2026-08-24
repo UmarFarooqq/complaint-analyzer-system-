@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Notifications - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    <aside class="sidebar">
+      <div class="brand"><span>CAS</span><b>Admin Panel</b></div>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="complaints.html">📂 Complaint Management</a>
+      <a href="analytics.html">📈 Reports & Analytics</a>
+      <a data-super-admin-only="true" href="roles.html">👥 Roles Management</a>
+      <a href="../department/dashboard.html">🏢 Department Portal</a>
+      <a href="../faculty/dashboard.html">👨‍🏫 Faculty Portal</a>
+      <a href="../reviewer/dashboard.html">🛡 Reviewer Portal</a>
+      <a href="predictions.html">🧠 AI Prediction</a>
+      <a class="active" href="notifications.html">🔔 Notifications</a>
+      <a href="advanced-analytics.html">📈 Advanced Analytics</a>
+      <a href="#" onclick="logout()">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <section class="page-header">
+        <div>
+          <h1>Admin Notifications</h1>
+          <p>Alerts for new complaints, high priority issues, and department actions.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header"><h3>System Notifications</h3></div>
+        <div id="notificationsList" class="ai-result-grid">Loading notifications...</div>
+      </section>
+    </main>
+  </div>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

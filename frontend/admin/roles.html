@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roles Management - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    <aside class="sidebar">
+      <div class="brand"><span>CAS</span><b>Main Admin</b></div>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="complaints.html">📂 Complaint Management</a>
+      <a href="analytics.html">📈 Reports & Analytics</a>
+      <a class="active" href="roles.html">👥 Roles Management</a>
+      <a href="member-activity.html">🧾 Member Activity</a>
+      <a href="../department/dashboard.html">🏢 Department Portal</a>
+      <a href="../faculty/dashboard.html">👨‍🏫 Faculty Portal</a>
+      <a href="../reviewer/dashboard.html">🛡 Reviewer Portal</a>
+      <a href="#" onclick="logout()">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <section class="page-header">
+        <div>
+          <h1>Roles Management</h1>
+          <p>Main Admin can create Department Admin, Faculty Staff, and Reviewer accounts.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>Create Role Account</h3>
+          <span>Only Main Admin / Super Admin</span>
+        </div>
+
+        <div id="roleMessage" class="validation-message"></div>
+
+        <form id="roleCreateForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input id="roleFullName" type="text" placeholder="Enter full name" required>
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input id="roleEmail" type="email" placeholder="Enter email" required>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <input id="rolePassword" type="password" placeholder="Minimum 6 characters" required>
+            </div>
+
+            <div class="form-group">
+              <label>Role</label>
+              <select id="roleType" required>
+                <option value="department_admin">Department Admin</option>
+                <option value="faculty_staff">Faculty Staff</option>
+                <option value="reviewer">Reviewer</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Department</label>
+              <select id="roleDepartment" required>
+                <option value="">Loading departments...</option>
+              </select>
+            </div>
+          </div>
+
+          <button id="createRoleBtn" class="btn btn-primary" type="submit">Create Role Account</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h3>Created Role Accounts</h3>
+          <span>Department / Staff / Reviewer</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Department</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminsListBody">
+              <tr><td colspan="6">Loading accounts...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

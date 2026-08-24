@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <div class="brand-logo">CAS</div>
+    <div class="brand-text">
+      <strong>Complaint Analyzer</strong>
+      <span>Student Portal</span>
+    </div>
+  </a>
+
+  <nav class="nav-menu">
+    <a class="nav-link active" href="dashboard.html">📊 Dashboard</a>
+    <a class="nav-link " href="submit-complaint.html">📝 Submit Complaint</a>
+    <a class="nav-link " href="complaint-history.html">📁 All Complaints</a>
+    <a class="nav-link " href="status.html">🔎 View Status</a>
+    <a class="nav-link" href="#" onclick="logout()">🚪 Logout</a>
+  </nav>
+
+  <div class="sidebar-note">
+    <strong>Complaint Analysis</strong><br>
+    Sentiment, category and priority are automatically detected after complaint submission.
+  </div>
+
+        <a href="chatbot.html">🤖 AI Assistant</a>
+        <a href="notifications.html">🔔 Notifications</a>
+
+</aside>
+
+    <div class="main-wrapper">
+      
+<nav class="top-navbar">
+  <div class="page-title">
+    <h1>Student Dashboard</h1>
+    <p>Overview of your complaint activity and status</p>
+  </div>
+
+  <div class="nav-actions">
+    <button class="icon-button">🔔</button>
+      <div class="profile-chip">
+        <div class="avatar">S</div>
+        <span id="studentProfileName">Student</span>
+    </div>
+  </div>
+</nav>
+
+      <main class="main-content">
+        <section class="hero-panel">
+          <div><h2>Welcome back, <span id="studentWelcomeName">Student</span></h2><p>Submit complaints, track progress, and view complaint analysis in one clean portal.</p></div>
+          <a class="btn btn-light" href="submit-complaint.html">Submit New Complaint</a>
+        </section>
+        <section class="cards-grid">
+          <div class="stat-card"><span>Total Complaints</span><strong id="studentTotalComplaints">0</strong><small>All submitted complaints</small></div>
+          <div class="stat-card"><span>Pending Complaints</span><strong id="studentPendingComplaints">0</strong><small>Waiting for admin action</small></div>
+          <div class="stat-card"><span>Resolved Complaints</span><strong id="studentResolvedComplaints">0</strong><small>Completed successfully</small></div>
+          <div class="stat-card"><span>High Priority</span><strong id="studentHighPriorityComplaints">0</strong><small>Urgent complaints</small></div>
+        </section>
+        <section class="content-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Recent Complaints</h3><a class="btn btn-light" href="complaint-history.html">View All</a></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>ID</th><th>Category</th><th>Sentiment</th><th>Priority</th><th>Status</th></tr></thead>
+                <tbody id="studentRecentComplaintsBody"><tr><td colspan="5">Loading complaints...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>Complaint Summary</h3></div>
+            <div class="ai-box" id="studentAISummaryBox">
+              <div class="ai-result-grid"><div class="ai-result-item"><span>Complaint Summary</span><strong>Loading...</strong></div></div>
+            </div>
+          </div>
+        </section>
+      
+      <section class="panel student-quick-actions">
+        <div class="panel-header">
+          <h3>Student Quick Actions</h3>
+          <span>Complaint help & tracking</span>
+        </div>
+        <div class="features-grid">
+          <a class="feature-card" href="submit-complaint.html"><h3>📝 Submit Complaint</h3><p>Submit issue with AI analysis and evidence upload.</p></a>
+          <a class="feature-card" href="chatbot.html"><h3>🤖 AI Assistant</h3><p>Ask about complaint status, fee issues, academic issues, and reset help.</p></a>
+          <a class="feature-card" href="status.html"><h3>🔍 Track Status</h3><p>Check latest complaint progress in real-time.</p></a>
+          <a class="feature-card" href="notifications.html"><h3>🔔 Notifications</h3><p>View complaint alerts and admin updates.</p></a>
+        </div>
+      </section>
+
+</main>
+    </div>
+  </div>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Staff Dashboard - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div id="site-overlay" class="site-overlay" aria-hidden="true"></div>
+
+  <main class="main-content role-simple-page">
+    <a class="btn btn-light" href="../admin/admin-login.html">Logout / Back Login</a>
+    <br><br>
+
+    <section class="page-header">
+      <div>
+        <h1>Faculty Staff Dashboard</h1>
+        <p>Review assigned academic complaints, add notes, and support complaint resolution.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>My Work Overview</h3></div>
+      <div id="roleDashboardBox">Loading role dashboard...</div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>Assigned Complaints</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>R-Number</th><th>Title</th><th>Department</th><th>Priority</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="roleComplaintsBody"><tr><td colspan="7">Loading assigned complaints...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>My Activity History</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Action</th><th>Complaint</th><th>Description</th><th>Time</th></tr></thead>
+          <tbody id="myActivityBody"><tr><td colspan="4">Loading activity...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>

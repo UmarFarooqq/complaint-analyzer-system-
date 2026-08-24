@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <div class="app-layout has-sidebar">
+    
+<aside class="sidebar">
+  <a class="brand" href="../index.html">
+    <div class="brand-logo">CAS</div>
+    <div class="brand-text">
+      <strong>Complaint Analyzer</strong>
+      <span>Admin Panel</span>
+    </div>
+  </a>
+
+  <nav class="nav-menu">
+    <a class="nav-link active" href="dashboard.html">📊 Dashboard</a>
+    <a class="nav-link " href="complaints.html">🗂 Complaint Management</a>
+    <a class="nav-link " href="analytics.html">📈 Reports & Analytics</a>
+    <a class="nav-link" href="#" onclick="logout()">🚪 Logout</a>
+  </nav>
+
+  <div class="sidebar-note">
+    <strong>Admin Control</strong><br>
+    Review complaints, filter records, update status and monitor AI-based complaint analytics.
+  </div>
+
+        <a data-super-admin-only="true" href="roles.html">👥 Roles Management</a>
+        <a data-super-admin-only="true" href="member-activity.html">🧾 Member Activity</a>
+        <a href="../department/dashboard.html">🏢 Department Portal</a>
+        <a href="../faculty/dashboard.html">👨‍🏫 Faculty Portal</a>
+        <a href="../reviewer/dashboard.html">🛡 Reviewer Portal</a>
+        <a href="predictions.html">🧠 AI Prediction</a>
+        <a href="notifications.html">🔔 Notifications</a>
+        <a href="advanced-analytics.html">📈 Advanced Analytics</a>
+
+</aside>
+
+    <div class="main-wrapper">
+      
+<nav class="top-navbar">
+  <div class="page-title">
+    <h1>Admin Dashboard</h1>
+    <p>Monitor complaints, priority levels and AI analysis overview</p>
+  </div>
+
+  <div class="nav-actions">
+    <button class="icon-button">🔔</button>
+    <div class="profile-chip">
+      <div class="avatar">A</div>
+      <span>Admin</span>
+    </div>
+  </div>
+</nav>
+
+      <main class="main-content">
+        <section class="hero-panel admin-hero">
+          <div><h2>Complaint Monitoring Center</h2><p>Analyze university complaints with sentiment, category and priority-based management.</p></div>
+          <a class="btn btn-light" href="complaints.html">Manage Complaints</a>
+        </section>
+        <section class="cards-grid">
+          <div class="stat-card"><span>Total Complaints</span><strong id="totalComplaintsCard">0</strong><small>All submitted complaints</small></div>
+          <div class="stat-card"><span>Today's Complaints</span><strong id="todayComplaintsCard">0</strong><small>New complaints today</small></div>
+          <div class="stat-card"><span>High Priority</span><strong id="highPriorityCard">0</strong><small>Urgent cases</small></div>
+          <div class="stat-card"><span>Resolved Complaints</span><strong id="resolvedComplaintsCard">0</strong><small>Completed cases</small></div>
+        </section>
+        <section class="content-grid">
+          <div class="panel">
+            <div class="panel-header"><h3>Recent High Priority Complaints</h3><a class="btn btn-light" href="complaints.html">View All</a></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>ID</th><th>Complaint</th><th>Category</th><th>Sentiment</th><th>Priority</th><th>Status</th></tr></thead>
+                <tbody id="adminRecentHighPriorityBody"><tr><td colspan="6">Loading high priority complaints...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><h3>AI Overview</h3></div>
+            <div class="bar-list" id="adminAIOverviewBars"><p>Loading complaint overview...</p></div><div class="insight-box"><strong>System Insight</strong><p id="adminSystemInsight">Loading system insight...</p></div>
+          </div>
+        </section>
+      
+      <section class="panel advanced-quick-actions">
+        <div class="panel-header">
+          <h3>Advanced Control Center</h3>
+          <span>Role-based tools</span>
+        </div>
+        <div class="features-grid">
+          <a data-super-admin-only="true" class="feature-card" href="roles.html"><h3>👥 Roles Management</h3><p>Super Admin only: create Department Admin, Faculty Staff, and Reviewer accounts.</p></a>
+          <a class="feature-card" href="../department/dashboard.html"><h3>🏢 Department Portal</h3><p>View and resolve department-wise complaints.</p></a>
+          <a class="feature-card" href="predictions.html"><h3>🧠 AI Prediction</h3><p>Predict complaint spikes and high-risk departments.</p></a>
+          <a class="feature-card" href="notifications.html"><h3>🔔 Notifications</h3><p>View alerts and high priority complaint notifications.</p></a>
+        </div>
+      </section>
+
+</main>
+    </div>
+  </div>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js?v=live-analytics-2"></script>
+</body>
+</html>

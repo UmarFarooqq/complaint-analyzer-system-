@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <main class="auth-page premium-auth">
+    <section class="auth-visual">
+      <span class="auth-badge">Student Portal Access</span>
+      <h1>Complaint Analyzer System</h1>
+      <p>Submit complaints, track progress, and view AI-based complaint classification through a premium student dashboard.</p>
+
+      <div class="auth-feature-list">
+        <div class="auth-feature"><span>🧠</span> AI sentiment, category, and priority detection</div>
+        <div class="auth-feature"><span>📊</span> Complaint dashboard and status tracking</div>
+        <div class="auth-feature"><span>🔐</span> Secure student authentication</div>
+      </div>
+
+      <a class="btn btn-light" href="../index.html">← Back to Home</a>
+    </section>
+
+    <section class="auth-card-wrap">
+      <div class="auth-card">
+        <div class="auth-logo-large">CAS</div>
+        <h2>Student Login</h2>
+        <p>Access your complaint dashboard.</p>
+
+        <div id="loginMessage" class="validation-message"></div>
+
+        <form id="studentLoginForm" onsubmit="handleStudentLogin(event)">
+          <div class="form-group">
+            <label>University Registration Number or Personal Email</label>
+            <input id="studentIdentity" type="text" maxlength="254" placeholder="Registration number or personal email" autocomplete="username" required>
+            <div class="form-hint">Use either the registration number provided by your university or the personal email used for your account.</div>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <div class="password-field">
+              <input id="studentPassword" type="password" placeholder="Enter password" required>
+              <button type="button" class="toggle-password" onclick="togglePassword('studentPassword', this)">👁</button>
+            </div>
+          </div>
+
+          <div class="password-row">
+            <a href="forgot-password.html">Forgot Password?</a>
+          </div>
+
+          <button class="btn btn-primary btn-full" type="submit">Login</button>
+        </form>
+
+        <div class="auth-footer">
+          New student? <a href="register.html">Create account</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js?v=unique-registration-5"></script>
+</body>
+</html>

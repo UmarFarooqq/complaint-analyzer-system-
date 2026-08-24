@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Complaint Assistant</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+  <main class="main-content chat-page">
+    <a class="btn btn-light" href="dashboard.html">← Back Student Dashboard</a>
+    <br><br>
+    <section class="panel">
+      <div class="panel-header"><h3>AI Complaint Assistant</h3></div>
+      <p>I can help you understand your complaint, check progress, prepare evidence, and choose the right next step.</p>
+      <div id="chatbotMessages" class="ai-result-grid" style="max-height:420px;overflow:auto;">
+        Loading your assistant...
+      </div>
+      <form onsubmit="sendChatbotMessage(event)" style="margin-top:16px;">
+        <div class="form-group">
+          <label>Your Message</label>
+          <input id="chatbotInput" class="chat-input" placeholder="Where is my complaint?">
+        </div>
+        <button class="btn btn-primary">Send</button>
+      </form>
+    </section>
+  </main>
+  <script src="../assets/js/app.js?v=assistant-2"></script>
+</body>
+</html>

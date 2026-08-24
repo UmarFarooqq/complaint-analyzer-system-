@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Notifications - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body>
+    <div class="app-layout has-sidebar">
+    <aside class="sidebar">
+      <div class="brand"><span>CAS</span><b>Student Panel</b></div>
+      <a href="dashboard.html">📊 Dashboard</a>
+      <a href="submit-complaint.html">📝 Submit Complaint</a>
+      <a href="complaint-history.html">📁 All Complaints</a>
+      <a href="status.html">🔍 Status Tracking</a>
+      <a href="chatbot.html">🤖 AI Assistant</a>
+      <a class="active" href="notifications.html">🔔 Notifications</a>
+      <a href="#" onclick="logout()">🚪 Logout</a>
+    </aside>
+
+    <main class="main-content">
+      <section class="page-header">
+        <div>
+          <h1>Notifications</h1>
+          <p>Alerts about your complaints and status updates.</p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header"><h3>My Notifications</h3></div>
+        <div id="notificationsList" class="ai-result-grid">Loading notifications...</div>
+      </section>
+    </main>
+  </div>
+    <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js?v=live-notifications-1"></script>
+</body>
+</html>

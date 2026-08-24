@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Admin Dashboard - Complaint Analyzer System</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin-extra.css">
+</head>
+<body class="role-page">
+  <main class="role-main-content department-layout">
+    <div class="role-topbar">
+      <a class="btn btn-light" href="../admin/admin-login.html">Logout / Back Login</a>
+    </div>
+
+    <section class="role-hero">
+      <div>
+        <span class="role-badge">Role Dashboard</span>
+        <h1>Department Admin Dashboard</h1>
+        <p>Manage assigned department complaints, update status, resolve issues, and add work notes.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>My Work Overview</h3></div>
+      <div id="roleDashboardBox">Loading role dashboard...</div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>Assigned Complaints</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>R-Number</th><th>Title</th><th>Department</th><th>Priority</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="roleComplaintsBody">
+            <tr><td colspan="7">Loading assigned complaints...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header"><h3>My Activity History</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Action</th><th>Complaint</th><th>Description</th><th>Time</th></tr></thead>
+          <tbody id="myActivityBody">
+            <tr><td colspan="4">Loading activity...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+</html>
