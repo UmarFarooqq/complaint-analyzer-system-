@@ -1,0 +1,1 @@
+const express=require('express');const router=express.Router();const {sendMessage,getHistory}=require('../controllers/chatbotController');const {protect,studentOnly}=require('../middleware/authMiddleware');router.post('/message',protect,studentOnly,sendMessage);router.get('/history',protect,studentOnly,getHistory);module.exports=router;
